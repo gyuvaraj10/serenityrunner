@@ -16,10 +16,13 @@ public class SuiteClass {
 
     private String features;
 
-    public SuiteClass(String format, String tags, String features){
+    private String glue;
+
+    public SuiteClass(String format, String tags, String features, String glue){
         this.format = format;
         this.tags = tags;
         this.features = features;
+        this.glue = glue;
     }
 
 
@@ -30,6 +33,7 @@ public class SuiteClass {
             templateUtil.put("featureFile", this.features);
             templateUtil.put("tags", formatTags());
             templateUtil.put("format", format);
+            templateUtil.put("glue", glue);
             templateUtil.put("testPhaseIdentifier", phase);
             templateUtil.put("randCode", randCode);
             templateUtil.fillTemplate();

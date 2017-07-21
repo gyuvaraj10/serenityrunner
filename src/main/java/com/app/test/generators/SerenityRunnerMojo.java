@@ -36,7 +36,7 @@ public class SerenityRunnerMojo extends AbstractMojo{
     @Parameter(required = true, defaultValue = "Creation")
     public String phase;
 
-    @Parameter(required = false, defaultValue = "{com.app.test}")
+    @Parameter(required = false)
     public String glue;
 
     @Parameter(required = false, defaultValue = "${project.build.directory}/test-classes/")
@@ -45,7 +45,7 @@ public class SerenityRunnerMojo extends AbstractMojo{
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException{
         getFeatures().forEach(feature -> {
-            SuiteClass suiteClass = new SuiteClass(format, tags, feature);
+            SuiteClass suiteClass = new SuiteClass(format, tags, feature, glue);
             long systemNanoTime = System.nanoTime();
             String generatedFile = suiteClass.generateFile(phase, String.valueOf(systemNanoTime));
             try {

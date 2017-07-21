@@ -6,6 +6,9 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(features = "$featureFile",
     format = {"pretty"},
     plugin = {"com.app.test.formatter.JSONScenarioFormatter:target/report${randCode}.json"},
+    #if($glue)
+    glue = {"${glue}"},
+    #end
     tags = {$tags})
 public class ${testPhaseIdentifier}${randCode}IT {
 }
