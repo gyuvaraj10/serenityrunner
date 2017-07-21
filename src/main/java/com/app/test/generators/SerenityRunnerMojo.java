@@ -66,13 +66,10 @@ public class SerenityRunnerMojo extends AbstractMojo{
      * @return
      */
     private List<String> getFeatures() {
-        File baseDir = project.getBasedir();
-        String featureFileAbsPath = baseDir.getAbsolutePath() +"/"+ features;
-        System.out.println("Feature File Directory Path" + featureFileAbsPath);
-        File folder = new File(featureFileAbsPath);
+        File folder = new File(features);
         File[] featureFiles = folder.listFiles();
         return Arrays.stream(featureFiles).filter(x->x.getName().contains(".feature"))
-                .map(x->x.getAbsolutePath())
+                .map(x->x.getPath().replace("\\","/"))
                 .collect(Collectors.toList());
     }
 
