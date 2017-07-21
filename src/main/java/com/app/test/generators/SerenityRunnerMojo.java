@@ -48,7 +48,6 @@ public class SerenityRunnerMojo extends AbstractMojo{
             SuiteClass suiteClass = new SuiteClass(format, tags, feature);
             long systemNanoTime = System.nanoTime();
             String generatedFile = suiteClass.generateFile(phase, String.valueOf(systemNanoTime));
-            System.out.println(generatedFile);
             try {
                 FileUtils.forceMkdir(outDir);
                 FileUtils.fileWrite(String.format("%s/%s%sIT.java", outDir.getAbsolutePath(), phase,
