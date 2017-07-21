@@ -6,7 +6,7 @@
 
     <groupId>apps.test.runner</groupId>
     <artifactId>generateRunner-maven-plugin</artifactId>
-    <version>1.1</version>
+    <version>1.0</version>
 
     <packaging>maven-plugin</packaging>
     <name>Maven Plugin Runner Generator</name>
